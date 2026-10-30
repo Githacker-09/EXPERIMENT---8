@@ -1,6 +1,6 @@
-name:ML CI/CD Pipeline
+name: ML CI/CD Pipeline
 
-on: 
+on:
   push:
     branches: [main]
   workflow_dispatch:
@@ -12,15 +12,17 @@ jobs:
     steps:
       - name: Download project code
         uses: actions/checkout@v4
+
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-           python-version: "3.11"
+          python-version: "3.11"
+
       - name: Install libraries
-         run: pip install -r requiremnets.txt
+        run: pip install -r requirements.txt
 
-      -name: Train ML model
-       run: python train.py
+      - name: Train ML model
+        run: python train.py
 
-      -name: Test ML model
-       run: python test.py
+      - name: Test ML model
+        run: python test.py
